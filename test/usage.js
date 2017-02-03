@@ -2,14 +2,11 @@
 /* -*- tab-width: 2 -*- */
 'use strict';
 
-require('usnam-pmb');
-
 var ld = require('lodash');
 
 function repeat(x, n) { return ld.times(n, ld.constant(x)); }
 
-
-(function readmeDemo() {
+function readmeDemo() {
   //#u
   var typ3of = require('typ3of'), same = require('assert').deepStrictEqual,
     hi = 'hello';
@@ -47,10 +44,8 @@ function repeat(x, n) { return ld.times(n, ld.constant(x)); }
 
 
 
-
-}());
-
-
+  console.log('+OK usage test passed');
+}
 
 
 
@@ -58,4 +53,8 @@ function repeat(x, n) { return ld.times(n, ld.constant(x)); }
 
 
 
-console.log("+OK test_usage test passed.");    //= "+OK test_usage test passed."
+
+
+
+
+module.exports = readmeDemo;

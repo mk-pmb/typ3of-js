@@ -1,5 +1,5 @@
 { "name": "typ3of",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A better typeof, all results are 3 characters long.",
   "keywords": [ "typeof" ],
 
@@ -16,7 +16,7 @@
   "private": false, "license": "ISC",
 
   "main": "typ3of.js",
-  "scripts": { "test": "nodejs test/usage.js" },
+  "scripts": { "test": "nodejs test/all.js" },
   "directories": { "test": "test" },
 
   "devDependencies": { "equal-pmb": "^0.1.0" },
