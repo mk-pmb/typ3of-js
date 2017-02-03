@@ -1,0 +1,26 @@
+{ "name": "typ3of",
+  "version": "0.1.0",
+  "description": "A better typeof, all results are 3 characters long.",
+  "keywords": [ "typeof" ],
+
+  "author": "M.K. (https://github.com/mk-pmb)",
+  "homepage": "https://github.com/mk-pmb/typ3of-js#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mk-pmb/typ3of-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mk-pmb/typ3of-js/issues"
+  },
+
+  "private": false, "license": "ISC",
+
+  "main": "typ3of.js",
+  "scripts": { "test": "nodejs test/usage.js" },
+  "directories": { "test": "test" },
+
+  "devDependencies": { "equal-pmb": "^0.1.0" },
+
+
+  "npm vs. BOM = Unexpected token": "-*- coding: UTF-8 -*-"
+}
