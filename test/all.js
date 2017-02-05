@@ -3,6 +3,14 @@
 'use strict';
 
 try { require('usnam-pmb'); } catch (ignore) {}
-require('./usage.js')();
 
+function dare(testName, func) {
+  try {
+    return func();
+  } catch (err) {
+    console.log('-ERR ' + testName + ' test failed: ', err);
+  }
+}
+
+dare('usage', require('./usage.js'));
 console.log("+OK all tests passed.");   //= "+OK all tests passed."
