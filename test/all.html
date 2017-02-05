@@ -4,7 +4,12 @@
   <meta http-equiv="Content-Script-Type" content="text/javascript">
 </head><body>
 
-<h2>Test typ3of in a browser!</h2>
+<div id="pre-console-loading-hint">
+  <h3>Loading sham "pre-console"…</h3>
+  <p>If this message persists, you may want to look at your browser's
+  integrated debug console instead.</p>
+</div>
+<script src="../../amdldr16-pmb/lib/dirty-shams/pre-console.js"></script>
 
 <script src="../../es5-shim/es5-shim.js"></script>
 <script src="../../epiphany-shims-pmb/shims.js">
@@ -12,7 +17,6 @@
   // https://github.com/es-shims/es5-shim/issues/190
 </script>
 
-<script src="../../amdldr16-pmb/lib/dirty-shams/pre-console.js"></script>
 <script src="../../cjs-minifake-pmb/m.js"></script>
 <script src="../../amdldr16-pmb/lib/dirty-shams/json-assert.js"
   modname="assert"></script>
