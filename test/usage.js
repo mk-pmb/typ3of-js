@@ -2,9 +2,15 @@
 /* -*- tab-width: 2 -*- */
 'use strict';
 
-var ld = require('lodash');
+function repeat(x, n) {
+  x = [x];
+  while (x.length < n) { x = x.concat(x.slice(0, n - x.length)); }
+  return x;
+}
 
-function repeat(x, n) { return ld.times(n, ld.constant(x)); }
+
+function checkSupported(f) { try { return f(); } catch (err) { return; } }
+
 
 function readmeDemo() {
   //#u
@@ -22,8 +28,13 @@ function readmeDemo() {
       repeat('num', 5).concat('NaN'));
 
   // objects
-  eql([hi.split(),  [],     Buffer.from(hi),  /RegExp/g,  new Date()],
-      ['arr',       'arr',  'buf',            'rgx',      'dat'     ]);
+  eql([hi.split(),  [],     /RegExp/g,  new Date()],
+      ['arr',       'arr',  'rgx',      'dat'     ]);
+
+  if (checkSupported(function () { return Buffer.from; })) {
+    eql([ Buffer.from(hi) ],
+        [ 'buf'           ]);
+  }
   //#r
 
 
@@ -56,5 +67,10 @@ function readmeDemo() {
 
 
 
-
-module.exports = readmeDemo;
+(function (e) {
+  /*global define: true */
+  var d = ((typeof define === 'function') && define),
+    m = ((typeof module === 'object') && module);
+  if (d && d.amd) { d(function () { return e; }); }
+  if (m && m.exports) { m.exports = e; }
+}(readmeDemo));

@@ -8,15 +8,17 @@
 })(function () {
   'use strict';
 
+  function canHaz(featureName, grabIt) {
+    var maybe = false;
+    try { maybe = grabIt(); } catch (ignore) {}
+    canHaz[featureName] = maybe;
+  }
+  canHaz('Buffer', function () { return Buffer; });
+
   function nope() { return false; }
 
-  function isFun(obj, mthd) {
-    mthd = (obj && obj[mthd]);
-    return (typeof mthd === 'function' ? mthd : nope);
-  }
-
   var EX, obj2str = Object.prototype.toString, isArr = Array.isArray,
-    isBuf = isFun(((typeof Buffer)[0] !== 'u') && Buffer, 'isBuffer');
+    isBuf = (canHaz.Buffer.isBuffer || nope);
 
 
   EX = function typ3of(x) {
@@ -35,6 +37,7 @@
     Date:     'dat',
     Object:   'obj',
     RegExp:   'rgx',
+    'MSIE6 compat': 'no comma -->'
   };
 
 

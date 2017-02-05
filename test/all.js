@@ -2,7 +2,7 @@
 /* -*- tab-width: 2 -*- */
 'use strict';
 
-require('usnam-pmb');
+try { require('usnam-pmb'); } catch (ignore) {}
 require('./usage.js')();
 
 console.log("+OK all tests passed.");   //= "+OK all tests passed."
