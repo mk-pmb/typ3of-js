@@ -16,7 +16,7 @@ from [test/usage.js](test/usage.js):
 
 <!--#include file="test/usage.js" start="  //#u" stop="  //#r"
   outdent="  " code="javascript" -->
-<!--#verbatim lncnt="18" -->
+<!--#verbatim lncnt="23" -->
 ```javascript
 var typ3of = require('typ3of'), same = require('assert').deepStrictEqual,
   hi = 'hello';
@@ -32,8 +32,13 @@ eql([0, -2, 3, Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY, +hi],
     repeat('num', 5).concat('NaN'));
 
 // objects
-eql([hi.split(),  [],     Buffer.from(hi),  /RegExp/g,  new Date()],
-    ['arr',       'arr',  'buf',            'rgx',      'dat'     ]);
+eql([hi.split(),  [],     /RegExp/g,  new Date()],
+    ['arr',       'arr',  'rgx',      'dat'     ]);
+
+if (checkSupported(function () { return Buffer.from; })) {
+  eql([ Buffer.from(hi) ],
+      [ 'buf'           ]);
+}
 ```
 <!--/include-->
 

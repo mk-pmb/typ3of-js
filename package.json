@@ -1,5 +1,5 @@
 { "name": "typ3of",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "A better typeof, all results are 3 characters long.",
   "keywords": [ "typeof" ],
 
